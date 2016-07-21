@@ -40,16 +40,16 @@
         mousePos.x = event.touches[0].pageX;
         mousePos.y = event.touches[0].pageY;
 
-        distance = Math.sqrt((mousePos.x - width * 0.5) * (mousePos.x - width * 0.5) +
-            (mousePos.y - height * 0.5) * (mousePos.y - height * 0.5));
+        distance = Math.sqrt(Math.pow(mousePos.x - width * 0.5) +
+            Math.pow(mousePos.y - height * 0.5));
     }
     function touchmove(event) {
         event.preventDefault();
         mousePos.x = event.touches[0].pageX;
         mousePos.y = event.touches[0].pageY;
 
-        distance = Math.sqrt((mousePos.x - width * 0.5) * (mousePos.x - width * 0.5) +
-            (mousePos.y - height * 0.5) * (mousePos.y - height * 0.5));
+        distance = Math.sqrt(Math.pow(mousePos.x - width * 0.5) +
+            Math.pow(mousePos.y - height * 0.5));
     }
     function touchend() {
         isDragging = false;
