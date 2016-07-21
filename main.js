@@ -78,11 +78,10 @@
 
     function touchstart(event) {
         event.preventDefault();
-
         tween && tween.stop();
 
-        mousePos.x = event.touches[0].pageX;
-        mousePos.y = event.touches[0].pageY;
+        mousePos.x = event.pageX ||event.touches[0].pageX;
+        mousePos.y = event.pageY ||event.touches[0].pageY;
         distance = Math.sqrt(Math.pow((mousePos.x - centerPos.x), 2) +
             Math.pow((mousePos.y - centerPos.y),2));
         if (distance < ballRadius) {
@@ -91,11 +90,10 @@
         }
     }
     function touchmove(event) {
-
         if (isDragging) {
             event.preventDefault();
-            mousePos.x = event.touches[0].pageX;
-            mousePos.y = event.touches[0].pageY;
+            mousePos.x = event.pageX || event.touches[0].pageX;
+            mousePos.y = event.pageY || event.touches[0].pageY;
 
             calDistance();
 
@@ -155,6 +153,10 @@
         canvas.addEventListener('touchstart', touchstart);
         canvas.addEventListener('touchmove', touchmove);
         canvas.addEventListener('touchend', touchend);
+
+        canvas.addEventListener('mousedown', touchstart);
+        canvas.addEventListener('mousemove', touchmove);
+        canvas.addEventListener('mouseup', touchend);
     }
     function calPos() {
         cx1 = (x1 + x4) / 2;
