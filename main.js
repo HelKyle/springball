@@ -34,16 +34,16 @@
             var y = drawRadius * Math.sin(angle);
             var x = Math.sqrt(Math.pow(drawRadius, 2) - Math.pow(y, 2));
 
-            var y1 = height * 0.5 + y;
+            var y1 = height * 0.5 - y;
             var x1 = width * 0.5 + x;
 
-            var y2 = height * 0.5 - y;
+            var y2 = height * 0.5 + y;
             var x2 = width * 0.5 - x;
 
-            var y3 = mousePos.y + y;
+            var y3 = mousePos.y - y;
             var x3 = mousePos.x + x;
 
-            var y4 = mousePos.y - y;
+            var y4 = mousePos.y + y;
             var x4 = mousePos.x - x;
 
             ctx.beginPath();
